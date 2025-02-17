@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek's Portfolio</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div>Abhishek</div>
+        <nav>
+            <a href="#about-section">About Me</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <h2 class="animated-text" id="animatedText">Hi!</h2>
+
+        <div class="avatar-container">
+            <img src="anbhav.jpg" alt="Abhishek's Avatar" class="avatar">
+         <div id = "about-section" >
+            <p>I'm a passionate Web Developer and Freelancer, creating responsive and user-friendly websites.
+            </p>
+         </div>
+         </div>
+    <section class ="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">JavaScript</div>
+            <div class="skill-box">React.js</div>
+            <div class="skill-box">C++</div>
+            <div class="skill-box">C</div>
+            <div class="skill-box">DSA</div>
+        </div>
+    </section>
+    <section class ="projects">
+        <h2>Projects</h2>
+        <p>Coming soon...</p>
+    </section>
+    <section id="contact" class="contacts">
+        <h2>Contact</h2>
+        <div class="social-icons">
+            <a href="mailto:spidey.9449@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/__anbhav" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/abhishek-singh-48b18a246" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </section>
+    
+    <div class="contact-form">
+        <h2>Get in Touch</h2>
+        
+        <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbxersQZDftn6l0n-Se-T1HmBYo6LrtAPJO4-xBqzCOcII3srdBBdEKCJ9v6-bjUTeUj5Q/exec">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    let animatedText = document.getElementById("animatedText");
+    setTimeout(() => {
+        animatedText.innerHTML = '<span class="typewriter">Service chahiye? Mil jayegi!!</span>';
+        animatedText.style.textAlign = "center";
+        let typewriterSpan = document.querySelector('.typewriter');
+        let textWidth = typewriterSpan.scrollWidth;
+        // Set the CSS variable to the measured width
+        typewriterSpan.style.setProperty('--target-width', textWidth + 'px');
+              }, 1000);
+        });
+        
+    // Prevent default form submission and send data as JSON using fetch
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Form data collect karo
+      var formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+      
+      fetch(this.action, {
+        method: "POST",
+        mode: "no-cors", // no-cors mode use kar rahe hain taaki response block na ho
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(function() {
+        alert("Message sent successfully!");
+      })
+      .catch(function(error) {
+        console.error("Error!", error.message);
+      });
+    });
+  </script>
+
+    
+    </script>
+</body>
+</html>
